@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>第一天知识点</title>
+		<style>
+			.test::after{
+				content:url("xx.js");
+			}
+				background:url('javascript:alert(1)')
+			a{target:expression(this.target="_blank")}
+		</style>
+	</head>
+	<body>
+		   <h2>利用css属性攻击</h2>
+		   首先能攻击的css 属性 基本上有 url 的都能被攻击。
+		   
+		   <p>background :url('console.log(1)')</p>
+		   <img src="javascript:alert('111')" alt="" />
+		   <p>伪类 </p>
+		   <p>expression()</p>
+	</body>
+	<script>
+		
+	</script>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="content">
+			<p>123131</p>
+			<p>ewrqwejkrqwekr</p>
+		</div>
+		<button id="save">click</button>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+		<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.js"></script>
+		<script>
+			$("#save").on("click",function(){
+					html2canvas($("#content"),{
+						onrendered:function(canvas){
+							  document.body.appendChild(canvas);
+							  convertCanvasToImage(canvas);
+						}
+					})
+			})
+			
+			function convertCanvasToImage(canvas){
+				var image = new Image();
+				image.src = canvas.toDataURL("img/read.png");
+				document.body.appendChild(image);
+				return image;
+			}
+		</script>
+	</body>
+</html>

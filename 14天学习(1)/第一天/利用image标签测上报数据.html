@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>第一天知识点</title>
+	</head>
+	<body>
+		   <h2>利用image测试上报速度</h2>
+		
+	</body>
+	<script>
+		//原理
+		//第一点 不使用ajax 请求数据 而是改用 navigator.sendBeacon 请求数据
+		  //原因 : ajax 占用业务资源  同时后台还需要写专门的接口存储数据
+		  //利用FormData() 键值对传参
+		   var  form = new FormData();
+		   form.append("user","rich chen");
+		   form.append("paswword","111");
+		   var con = "<span>q213</span>";
+		   var blob = new Blob([con],{type:"text/html"})
+		   form.append("blob",blob);
+		   //var request = new XMLHttpRequest();    request .open('post',url)    request.send(data)
+		  navigator.sendBeacon("http://47.100.42.3:8081/dappapp/image/Logo.png",form);
+		  
+		  //利用浏览器空闲时间把数据发送给后台，后台起个定时器，处理log 日志，即可拿到用户的各种数据 比如机型   埋点等统计数据。
+	</script>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>第一天</title>
+		<style>
+			background:url('javascript:alert(1)')
+		</style>
+	</head>
+	<body>
+		   <h2>利用image测试网络用速</h2>
+			<img src="javascript:alert('XSS')">
+	</body>
+	<script>
+	
+		var size = 7.36; //kb
+		var  time = new Date();
+		var img = new Image();
+		img.src = "http://47.100.42.3:8081/dappapp/image/Logo.png"; //只是地址赋值 不需要网速
+		img.onload = function(){
+			var nowTime = new Date();
+			console.log(nowTime-time);
+			var v = (size/(nowTime - time))/1000;
+			console.log(v*1024)
+		}
+	</script>
+</html>

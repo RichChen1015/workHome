@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>FormData对象</title>
+	</head>
+	<body>
+		<h2>FormData 作用</h2>
+		<ul>
+			<li>1.封装成键值对的形式传参,主要用于表单数据的传递。也可以独立于表单传递。利用XMLHttpRequest发送数据</li>
+			<li>2.formData 数据类型 blob对象  文件类型 string</li>
+			<li></li>
+		</ul>
+		<script>
+			 var FormData = new FormData();
+			 //key value
+			 FormData.append("user","123");//如果传入不是bool 文件类型 会直接转成string类型
+			 //html blob  可以传递domstring 对象 
+			 var con = '<span>123</span>';
+			 var blob = new Blob([con],{type:"text/html"}); //size   con 的字符串长度    blob 用于存放2进制的容器。
+			 FormData.append("blob",blob);
+			 
+			 var req = new XMLHttpRequest();
+			 req.open("post",'url');
+			 req.send(FormData);
+		</script>
+	</body>
+</html>

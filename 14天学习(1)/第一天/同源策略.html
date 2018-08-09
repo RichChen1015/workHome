@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<title>第一天</title>
+	</head>
+
+	<body>
+		<h2>一 .概念</h2>
+		<p>
+
+			现在所有浏览器都支持“同源策略”。所谓同源策略是由“netscape” 网井公司提出的。 何为“同源策略”
+		</p>
+		三同：
+		<ul>
+			<li>
+				同端口
+			</li>
+			<li>
+				同域名
+			</li>
+			<li>
+				同协议
+			</li>
+		</ul>
+
+		<h2>二.目的</h2>
+		<p>用户信息的安全性。</p>
+		<p>假设：a 是一家银行网站，登陆之后没有退出a网站 又去浏览其他的浏览器。如果其他的浏览器会获取a 的用户信息，用户的信息会被盗取。浏览器还规定，表单提交不受同源策略的影响。如果没有同源策略的限制，那么浏览器cookie将会共享。
+		</p>
+		<h2>三.范围限制 </h2>
+		<p>目前如果非同源，将会受到以下限制： （1）cookie localstorage indexdb 无法读取。 (2) dom 无法获取 (3) ajax 无法发送 同时，如果以上被限制，将会很不方便，以下将会提供各种办法去解决这样的问题 四：cookie做法 一级域名二级域名 一级域名是www 开头的 http://www.baidu.com 二级域名 是 http://zz.baidu.com zz替代 www cookie是服务器写入浏览器的信息，只有同源的网页才可以共享。但是2个页面的一级域名相同，只是二级域名相同。浏览器是可以设置document.domian就可以获取cookie. console.log(document.domain) 会返回基础域名。 www.baidu.com 同样设置document.domain 需要注意如下几点 document.domain = "www.baidu.com" is ok document.domain = "baidu.net" is error 两个二级网页设置的document.domain 相同，document.domain 只能设置基础域名或者当前域名， a网页的域名是 aa.baidu.com document.domain = "baidu.com" document.cookie = 'test= 123' b网页的域名是 bb.baidu.com document.domain = "baidu.com" var allCookie = document.cookie 这种方法适用于iframe cookie ，不能设置localStorage 和indexDb 。 或者直接从服务器一级域名设置 Set-Cookie: key=value; domain=.example.com; path=/，这样二三级域名不用设置，都可以访读取cookie 可以解决的方法 ajax 只能发送同源请求，否则报错。 五. iframe jsonp script 回调 img的 src css 的 background iframe cookie 都可以解决“同源策略”的限制。 同源策略参考资料：http://www.ruanyifeng.com/blog/2016/04/same-origin-policy.html
+</p>
+
+	</body>
+
+</html>

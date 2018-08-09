@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="text " id="test"/>
+	
+		<script>
+					window.addEventListener("message",function(e){
+						if(e.source!=window.parent) return;
+						console.log(e)
+						var data = e.data;
+						console.log(data);
+						document.getElementById('test').value= data;
+						sessionStorage.setItem("data",data);
+					})
+					
+					
+					
+					
+		</script>
+	</body>
+</html>
