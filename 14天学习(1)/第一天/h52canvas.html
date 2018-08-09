@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>跨域通信</title>
+	</head>
+	<body>
+		<h2>跨域通信</h2>
+		<ul>
+			<li>一：jsonp </li>
+			<li>二：图片跨域</li>
+			<li>三：iframe postMessage通信  适用于跨域通信 线程通信  </li>
+		</ul>
+		<div class="content">
+			
+			$("#click").on("click",function(){
+				
+			});
+		</div>
+		<button id="click">html2canvas</button>
+		<button id="clicktwo">canvas2img</button>
+		<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+		<script src="https://cdn.bootcss.com/html2canvas/0.5.0-beta4/html2canvas.min.js"></script>
+		<script src=""></script>
+		<script>
+			//1.参数 fn callback  服务器端 fn()
+			//2.js 转乘canvas生成图片 ， 图片可以跨域
+			//3.iframe 通信   postMessage (a域给b域发送请求，b域接受消息，然后返回给a域)；
+			
+			//练习 js to canvas
+			$("#click").on("click",function(){
+				html2canvas($(".content"),{ 
+		        	onrendered:function(canvas){
+		              dataURL = canvas.toDataURL("image/png");
+		              $("body").append(canvas);
+		              console.log(dataURL);
+		            },
+		            width:320,
+          			height:400
+		        })
+				
+			
+			});
+			
+			$("#clicktwo").on("click",function(){
+				var canvas = $("canvas");
+				var img = new Image();
+				img.src= canvas[0].toDataURL("image/png")
+				$("html,body").append(img);
+			})
+			
+		</script>
+	</body>
+</html>
