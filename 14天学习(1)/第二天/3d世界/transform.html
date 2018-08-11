@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				perspective: 600px;/*视角越大 离自己越远   视角越小 离自己越近*/
+				position:relative;
+				margin: 80px auto;
+				width:400px;
+				height:400px;
+			}
+			.box > div{
+				position:absolute;
+				width:400px;
+				height:400px;
+				
+			}
+			.box div:first-child{
+				    background: red;
+    				transform: rotateY(82deg);
+    				/*z-index: 1000;*/
+    				animation:demo  0.4s ease-in-out infinite;
+    				
+			}
+			.box div:last-child{
+				background:#bbb;
+			}
+			
+			@keyframes demo {
+				50%{
+					transform: translateZ(100px);
+				}
+				100%{
+					transform:translateZ(1000px);
+				}
+			}
+			/* 3d 环境下交叉*/
+			.box{
+				transform-style: preserve-3d;/*3d 模式下的交叉*/
+			}
+		</style>
+	</head>
+	<body>
+		<ul>
+			<li>1.perspective设置数值越大 视角距离离我们越远</li>
+			<li>2.只设置transfrom 作用在元素 元素之间不存在交叉轴 原因:必须设置3d环境 transfrom-style:preserve-3d</li>
+			<li>3.持续的动画  @keyframes demo {}   动画名 空格  </li>
+			<li>4.元素引用  animation: 动画名 时间 速度  播放次数</li>
+		</ul>
+		<div class="box">
+			<div></div>
+			<div></div>
+		</div>
+	</body>
+</html>
