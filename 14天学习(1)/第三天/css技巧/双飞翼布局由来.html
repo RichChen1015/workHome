@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				margin:0px ;padding:0px;
+			}
+			.main{
+				width:100%;
+				background:red;
+			}
+			.left{
+			    width:200px;
+			    margin-left:-100%;
+			}
+			.right{
+			    width:200px;
+			    margin-left:-200px;
+			}
+			div{
+				float:left;
+			}
+			.con{
+				margin:0px 220px
+			}
+		</style>
+	</head>
+	<body>
+		<p>
+			双飞翼布局的由来：比如京东的pc页面内容很多，dom结构异常的多。所以会优先考虑加载最重要的信息。
+			双飞翼布局就像鸟一样 身体最重要。所以优先画出鸟的身体。
+		</p>
+		
+		<div class="main"><div class="con">我是最重要的。</div></div>
+		<div class="left">
+			1
+		</div>
+		<div class="right">2</div>
+	</body>
+</html>

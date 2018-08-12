@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>css实现字体图标</title>
+		<style>
+			.icon{
+				width:20px;
+				height:20px;
+				border:1px solid #111;
+				border-radius:50%;
+				display:inline-block;
+				position:relative;
+			}
+			.icon:before{
+				content: "";
+			    width: 0px;
+			    height: 15px;
+			    border: 1px solid #111;
+			    display: inline-block;
+			    position: absolute;
+			    top: 14px;
+			    left: 23px;
+			    transform: rotate(-45deg);
+			}
+		</style>
+	</head>
+	<body>
+		<span class="icon"></span>
+		<p>参考地址：https://cssicon.space/#/icon/search</p>
+	</body>
+</html>

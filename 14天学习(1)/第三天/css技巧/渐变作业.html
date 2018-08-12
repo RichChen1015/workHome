@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			.top{
+				width: 260px;
+			    height: 64px;
+			    overflow: hidden;
+			    margin: 106px auto;
+			    border-bottom: 1px solid #ddd;
+			    box-shadow: 0px 0px 0px 0px #111;
+			    position: relative;
+			    padding-top: 10px;
+			}
+			.top::after{
+				    content: "";
+				    position: absolute;
+				    top: 0px;
+				    margin-right: -5px;
+				    right: 50%;
+				    width: 10px;
+				    height: 10px;
+				    display: block;
+				    border: 1px solid #ddd;
+				    border-radius: 50%;
+				    background: #8e7c7c;
+			}
+			.content {
+				width: 256px;
+				height: 150px;
+				overflow: hidden;
+				/*  margin: 100px auto;*/
+				border-radius: 50%;
+				border: 1px solid #111;
+				background: beige;
+			}
+			
+			.yusan {
+				margin: 0px auto;
+				width: 150px;
+				height: 150px;
+				border: 1px solid #ddd;
+				/*左右  上下 阴影扩散 倍数 颜色**/
+				border-radius: 50% 50%;
+				box-shadow: 16px 0px 0px 0px blue, 32px 0px 0px 0px green, -10px 0px 0px 0px blue, -32px 0px 1px 0px green;
+			}
+			
+			footer{
+				height: 100px;
+			    width: 2px;
+			    margin-left: -25px;
+			    margin: -106px auto;
+			    background: #111;
+			}
+		</style>
+	</head>
+
+	<body>
+		
+		<header>
+			<div class="top">
+				<div class="content">
+					<div class="yusan"></div>
+				</div>
+			</div>
+			
+		</header>
+		<footer>
+			<div></div>
+		</footer>
+	</body>
+
+</html>

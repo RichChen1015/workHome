@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<p>使用3d加速器的背景:网页开发东西不多，页面很卡，通过chrome timeline 监控，除了js占用大量资源，painting 也耗费大量时间。</p>
+		<h2>解决浏览器卡顿技巧</h2>
+		<ul>
+			<li>-webkit-tranform:tranlateZ(0)</li>
+			<li>-webkit-tranform:translate3d(0,0,0)</li>
+		</ul>
+		<h3>原理：开启3d硬件加速:会导致fps值变大</h3>
+		<h2>开启cpu硬件加速器导致问题：浏览器屏幕闪动</h2>
+		<h3>解决办法</h3>
+		<ul>
+			<li>-webkit-backface-visibility:hidden;</li>
+			<li>-webkit-perspective:1000;</li>
+		</ul>
+		<h2>适用范围</h2>
+		<ul>
+			<li>编写大量dom进行css3动画</li>
+			<li>使用css的sprite</li>
+			<li>使用背景图background-size:cover</li>
+		</ul>
+		<h2>注意事项</h2>
+		<p>通过开启GPU硬件加速虽然可以提升动画渲染性能或解决一些棘手问题，但使用仍需谨慎，使用前一定要进行严谨的测试，否则它反而会大量占用浏览网页用户的系统资源，尤其是在移动端，肆无忌惮的开启GPU硬件加速会导致大量消耗设备电量，降低电池寿命等问题。</p>
+	</body>
+</html>
