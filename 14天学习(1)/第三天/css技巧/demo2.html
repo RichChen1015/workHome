@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				position:relative;
+				width:10rem;
+				height:10rem;
+				border:1px solid #ddd;	
+				/*由小到大排列*/
+				background:					
+					radial-gradient(1rem 1rem  at 50% 50% ,#222 50%, transparent 51%) 0rem 2rem,
+					radial-gradient(2rem 5rem  at 50% 50% ,#bbb 50%, transparent 51%) 0rem 5rem,
+					radial-gradient(5rem 5rem  at 50% 50% ,#DDD 50%, transparent 51%) 0rem 5rem,
+					radial-gradient(10rem 5rem  at 50% 50% ,red 50%, transparent 51%) 0rem 5rem			
+				;
+				background-repeat:no-repeat;
+			}
+			.box::before{
+				width:.5rem;
+				height:4rem;
+				background:#111;
+				content:"";
+				position:absolute;
+				top:120%;
+				right:48%;
+				margin-left:-.25rem;
+				margin-top:-2rem;
+				display:block;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			
+		</div>
+	</body>
+</html>
