@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>bfc</title>
+		<style>
+			div{
+				width:400px;
+				/*height:100px;*/
+				border:1px solid #ddd;
+			}
+			p{
+				float:left
+			}
+			.box:after{
+			    content: "";
+			    display: block;
+			    clear: both;
+			}
+		</style>
+	</head>
+	<body>
+		<!--浮动元素同理文档流，导致父容器崩塌  解决 overflow:hiden clear:both-->
+		浮动元素同理文档流，导致父容器崩塌  解决  
+		<div class="box">
+			<ul>
+				<li>overflow:hiden 原理：如果overflow 非visible 就会创建BFC,bfc(特性红能)其中一个特性就会包裹浮动元素</li>
+				<li>clear:both  </li>
+				<li>:after (不能用before after 最后渲染)</li>
+			</ul>
+			bfc 功能 ： 
+			<ul>
+				<li>包裹浮动元素(一旦创建bfc，就会内部元素伸缩出来)</li>
+				<li>阻挡外边距叠加</li>
+			</ul>
+			如何创建bfc
+			<ul>
+				<li>overflow</li>
+				<li>position:absolute fixed</li>
+				<li>display:inline-block 表格相关联(table-cell display:table-caption) 使用表格自动创建bfc</li>
+			
+			</ul>
+			
+			<h2>使用oveflow 或者其他方法创建bfc有一个问题。首先这些方法设计的本身有自己的最初的意义。例如oveflow 滚动 或者裁剪 浏览器定义了溢出的状态。</h2>
+			<h1>最安全的做法 display:flow-root</h1>
+			
+			<p>dfc:简称块格式化上下文</p>
+			<p>理解：创建一个元素(每一个元素都是一个盒子)</p>
+			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem nisi laboriosam ut sapiente itaque ipsum tempora possimus dolorem enim nobis illum consectetur eos sequi porro odit magnam quae quo delectus!</p>
+		</div>
+	</body>
+</html>
