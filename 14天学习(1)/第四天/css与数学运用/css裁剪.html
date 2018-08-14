@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<style>
+			.con{
+				width:300px;
+				height:300px;
+				margin:100px auto;
+				background:red;
+			}
+			.box{
+				background:yellow;
+				height:300px;
+				clip-path:polygon(50% 0 , 50% 20%,  100% 50% , 50% 100%  , 0 50%);
+			}
+			.x-y{
+				width:100px;
+				height:1px;
+				background:red;
+				margin:100px auto;
+				
+			}
+			.box:hover{
+				clip-path:polygon(0% 0, 100% 0 ,100% 100% ,0 100%)
+			}
+			.x-y:before{
+				content:"Y";
+				display:block;
+				transform:rotate(270deg) translateX(-50px)  translateY(-50px);
+				width:100px;
+				height:1px;
+				background:red;
+				
+			}
+			.x-y:after{
+				content:"x";
+				padding-left:100px;
+
+			}
+		</style>
+			<div class="con">
+				<div class="box"></div>
+			</div>
+			<h2>裁剪的x轴和y轴的位置</h2>
+			<div class="x-y">
+				
+			</div>
+	</body>
+</html>
