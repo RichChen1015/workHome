@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.box{
+				width:150px;
+				height:150px;
+				background:red;
+				animation: demo 5s cubic-bezier(.76,.33,.45,.96) infinite;
+			}
+			
+			
+			@keyframes demo {
+			 25%{
+						transform: rotate(90deg);
+					}
+		
+				50%{
+					transform: rotate(180deg);
+				}
+				75%{
+					transform: rotate(270deg);
+				}
+				100%{
+					transform: rotate(360deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="box">
+			距离和时间确定当前某一个阶段运动速度
+			贝塞尔理解:贝塞尔曲线  拖动 起始点 终点 来控制曲率
+			贝塞尔普通动画区别:利用贝塞尔曲线绘制精致平滑的曲线
+			css    cubic-bezier  
+		</div>
+	</body>
+</html>
