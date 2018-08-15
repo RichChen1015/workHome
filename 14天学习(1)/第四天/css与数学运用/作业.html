@@ -3,7 +3,46 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
+		<style>
+			.box{
+				width:300px;
+				height:300px;
+				background:#ddd;
+				margin:40px auto;
+			
+			}
+			.box:hover{
+					animation: demo 3s ; /*运动轨迹 贝塞尔曲线*/
+			}
+			
+			@keyframes demo {/*位移 矩阵*/
+				35%{
+					    transform: matrix(1, 0, 0, 1, 0,80);
+    transition-timing-function: cubic-bezier(0.54, 0.24, 0.89, 0.74);
+					
+				}
+				50%{
+					    transform: matrix(1, 0, 0, 1, 0, 20);
+    transition-timing-function: cubic-bezier(0.68, 0.41, 0.79, 1.15);
+				}
+				100%{
+					transform:matrix(1, 0, 0, 1, 0, 150);
+					transition-timing-function:cubic-bezier(.72,.47,.83,.9)
+				}
+			}
+		</style>
 	</head>
 	<body>
+		<!--
+			y轴    0  ---- 45px
+			y轴    45px ---- 30px
+			y轴    30 px ----  100px
+			
+		-->
+		
+		<div class="box">
+			timing function
+			skew rotate translate 原理是用矩阵生成的 性能高一点
+		</div>
 	</body>
 </html>
