@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			//   iife   --->匿名函数        作用域内的函数或者变量在没有地址引用的情况下  会被销毁
+			//   形式   +function(){}()     !function(){}   ~function(){}()
+			//   {} 作用域   es5 只有函数作用域（函数内的变量不能突破函数作用域）没有块级作用
+		    //
+		    
+		    ~function(){
+		    	alert(a);
+		    	var a = 1;
+		    	function a(){
+		    		
+		    	}
+		    }();
+		    //分析      外层匿名函数的执行   
+		    //自己的理解 
+		    // var a;  fn ; alert(a) a = 1;    a = fn
+		    //老袁的纠正   fn 优先级最高  ；  fn  a  alert(a)     
+		    //=> fn ？ a和 fn的变量名一样 所以a暂时性的留在原地 相当于注释
+		    
+		    if(true){
+		    	var a =1;
+		    }
+		    alert(a)   //1     var a ;   a= 1;
+		    //es5  没有块级作用域  如果外层没有function 则提升到最外层   如果有 突破不了函数作用域
+		    
+		    //块作用域      {} + let 
+		    if(true){
+		    	var a =1;
+		    }
+		    alert(a)//error
+		    
+		    
+		    //低版本ie不支持let 实现原理
+		    
+		    if(true){
+		    	try{
+		    		throw 1
+		    	}catch(a){
+		    		alert(a)
+		    	}
+		    }
+		    
+		    //如果没有当前变量 则会在全局创建该变量
+		    var a ={b:1}
+		    with(a){
+		    	a.c = 2
+		    }
+		    
+		    console.log(a.c)  //2
+		    
+		    
+		</script>
+	</body>
+</html>
