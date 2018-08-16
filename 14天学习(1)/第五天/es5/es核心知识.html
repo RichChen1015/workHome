@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		
+		<script>
+			(function(){
+				var a =1;
+				
+			})()
+			//执行完会被回收 因为iife 中   执行完的函数如果没有被引用就会被销毁(误区：闭包变量不会被销毁)
+			
+			(function(){
+				var a =1;
+				return fn(){
+					
+				}
+			})();
+			
+			//也会被回收
+			
+			(function(){
+				var a =1;
+				return fn(){
+					eval("");//window.eval("")  //就会被回收
+					with(){
+						
+					}
+					try{
+						
+					}catch(){
+						
+					}
+					//以上三个不会被回收
+				}
+			})();
+			//eval 就不会被回收    eval("")里面可能有a
+		</script>
+	</body>
+</html>
