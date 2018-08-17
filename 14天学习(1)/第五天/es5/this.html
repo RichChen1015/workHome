@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			this.a = 10;
+			var method = {
+				a:30,
+				page:function(){
+					
+					console.log(this.a)
+				}
+			}
+			
+			method.page(); // this - >  method 30
+			//this   谁调用this就是this就是谁
+			
+			var s = method.page;
+			s(); //window.s();
+			// this -- >  window      method.page;   == function(){console.log(this.a)}   wndow.s
+			
+			
+			//特殊情况    闭包 
+			this.a = 10;
+			var method = {
+				a:30,
+				page:function(){
+					function a(){
+						console.log(this);//this 在闭包里面  在全句里面找
+						console.log(this.a)
+					}
+					a()
+				}
+			}
+			method.page();	
+			
+			
+			//es6 
+			this.a = 10;
+			var method = {
+				a:30,
+				page:()=>{	//箭头函数会绑定(bind) this			  绑定父级的最外层作用域
+					function a(){
+						console.log(this);//this 在闭包里面  在全句里面找
+						console.log(this.a) //10
+					}
+					a();
+				}
+			}
+			method.page();	
+			
+			 //
+			 
+			// this.a = 10;
+			var method = {
+				a:30,
+				page:()=>{	//箭头函数会绑定(bind) this			  绑定父级的最外层作用域
+					console.log(this.a)
+				}
+			}
+			method.page();	//undefined
+			 
+		</script>
+	</body>
+</html>
