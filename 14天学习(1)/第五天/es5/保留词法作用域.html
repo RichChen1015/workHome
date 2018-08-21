@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			!function(){
+				alert(a);
+				var a = 1;
+				function a(){
+					
+				}
+			}();
+			
+			//分析 :  函数的提升 优先级 要高于var 变量的 优先级
+			//浏览器的运行 会把
+			!function(){
+				function a(){
+					
+				}
+				var a; //暂时性停留词法作用域  相当于 先注释掉 //var a   函数名和变量名相同
+				alert(a);
+				a = 1;
+			}();
+			
+			
+			!function(){
+				var a = b = 1;		 // var a ; b= 1 ; a =1;
+			}();
+			//匿名函数运行
+			alert(b);       // b 是全局的
+			alert(a);       // a 是 error   全局找不到 报错
+		</script>
+	</body>
+</html>

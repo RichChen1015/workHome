@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			var a =2;
+			var b =a;
+			b = 4;
+			console.log(b);
+			//按值传递   number   副本
+			
+			
+			//按引用传递
+			
+			function test(q){
+				q = {
+					v:5
+				}
+				
+				/*
+				       m.v= 5
+				 * */
+			}
+			
+			var m = {
+				k:30
+			}
+			
+			// ===  m.k =30
+			test(m);
+			test(m.v);
+			//
+			
+		</script>	
+	</body>
+</html>

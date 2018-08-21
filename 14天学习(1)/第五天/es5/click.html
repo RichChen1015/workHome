@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div>
+			<li>1</li>
+			<li>2</li>
+			<li>3</li>
+			<li>4</li>
+		</div>
+		<script>
+			//输出下面的值  并写出三种正确的li的值
+		/*var li = document.getElementsByTagName("li");
+			for(var i = 0 ;i<li.length;i++){
+				li[i].onclick = function(){
+					console.log(i)
+				}
+			}
+			alert(i)
+		*/
+			// i = 4
+			
+			//for(var i=0;i++) ============= var i ; for(i=0){}  alert(i)   相当于对i 进行累加
+ 			//let 解决   有暂时性死区   如果找到了let 必须先定义 后赋值
+		/*	var li = document.getElementsByTagName("li");
+			for(let i = 0 ;i<li.length;i++){
+				li[i].onclick = function(){
+					console.log(i)
+				}
+			}
+		*/	
+		//	 闭包可以返回作用域里面的人私有变量
+			
+		/*	function click(){
+				
+				var li = document.getElementsByTagName("li");
+				for(var  i = 0 ;i<li.length;i++){
+					console.log("111")
+					li[i].onclick = function(){
+					    return function (){
+					    	console.log(i)
+					    }
+					  
+					}
+				}
+			}
+			console.log(click)	;
+			var s = click();
+			console.log(s)
+			
+		*/	
+		//闭包没有效果	
+		
+		//this
+		
+		var li = document.getElementsByTagName("li");
+		for(var  i = 0 ;i<li.length;i++){
+			console.log("111")
+			li[i].onclick = function(){
+			   console.log(this.innerHTML)
+			  
+			}
+		}
+		
+		//
+		function test(m){
+			m = {
+				v : 5
+			}
+		}
+		
+		var m = {
+			k : 30
+		}
+		
+		test(m);
+		alert(m,v);
+		
+		
+		//网速分段  0-100 一等网速    100-200 二等网速
+		
+		10 - math.floor(speed/100) = 1;
+			
+			
+		//字符串变数组
+			for 循环
+			Array.from("1234")
+			split
+		    Array.prototype.splice.call()
+		</script>
+	</body>
+</html>

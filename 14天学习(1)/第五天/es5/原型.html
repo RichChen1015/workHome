@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function test(){
+				this.a = 20
+			}
+			test.prototype.a = 30;
+			console.log((new test()).a)//20
+			// new test   new test() =====>  test{a : 20}
+			//谁调用 this 就是谁    test 的优先级大于原型链查找
+			
+			
+			//es6
+			class test{
+				custructor(){
+					this.qq = 2014;
+				}
+				a(){
+					console.log(1);
+				}
+			}
+			//a 方法就会基于原型链实现的
+			test.prototype.a = function(){
+				console.log(2);
+			}
+			
+			(new test).a();
+			
+			
+			// test.prototype.constructor = test;
+			//es6 的类是基于es5实现的，es6 是es5的语法糖。基于原型链实现的。
+			//class  === function 
+			/*
+			 * function test(){
+			 * 		this.qq = 2014
+			 * }
+			 * test.prototype.a = function(){
+			 *      console.log(1)
+			 * }
+			 * 
+			 * 
+			 * test.prototype.a = function(){
+					console.log(2);
+				}
+				
+				相当于被覆盖了
+			 * */
+			
+		</script>
+	</body>
+</html>
