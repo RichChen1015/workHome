@@ -25,7 +25,7 @@
 			(function(){
 				var a =1;
 				return fn(){
-					eval("");//window.eval("")  //就会被回收
+					eval("");//eval 不会被回收//window.eval("")  //就会被回收
 					with(){
 						
 					}
